@@ -1,9 +1,14 @@
 name: Deploy Prod Infra
 
+# on:
+#   push:
+#     branches:
+#       - main   # Khi push vào branch main thì chạy CI/CD cho Production
 on:
   push:
-    branches:
-      - main   # Khi push vào branch main thì chạy CI/CD cho Production
+    tags:
+      - 'v*.*.*'   # Ví dụ: v1.0.0, v2.3.1
+
 
 jobs:
   deploy:
